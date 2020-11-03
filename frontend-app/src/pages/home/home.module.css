@@ -7,6 +7,7 @@
 
 .perfil {
     width: 170px;
+    height: 315px;
     display: flex;
     flex-direction: column;
     margin-top: 20px;
@@ -23,7 +24,7 @@
 }
 
 .imagen {
-    margin: 0 auto 10px auto;
+    margin: auto;
     width: 140px;
     height: 140px;
     border-radius: 75px;
@@ -31,6 +32,7 @@
 }
 
 .nombre {
+    margin-top: 10px;
     font-weight: bold;
     color: rgb(48, 145, 48);
 }
@@ -45,7 +47,6 @@
 
 .data {
     width: 100%;
-    height: 310px;
     margin: 10px auto 0 auto;
 }
 
@@ -85,7 +86,7 @@
     margin-top: 10px;
 }
 
-@media (max-width: 868px) {
+@media (max-width: 860px) {
     .container {
         width: 90%;
     }
@@ -100,6 +101,7 @@
 
     .perfil {
         width: 90%;
+        height: 180px;
         flex-direction: row;
         margin: 20px auto;
     }
