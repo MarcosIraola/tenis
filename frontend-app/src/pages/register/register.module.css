@@ -1,0 +1,27 @@
+.contenedor {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.titulo {
+    margin: 20px 0 0 0;
+}
+
+.contenedorInputs {
+    width: 30%;
+    margin: 0 auto 20px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs {
+    height: 40px;
+    margin: 5px;
+    padding-left: 5px;
+}
+
+.fb {
+    margin-top: 20px;
+}

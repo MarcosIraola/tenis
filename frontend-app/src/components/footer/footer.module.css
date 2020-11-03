@@ -1,0 +1,24 @@
+.contenedor {
+    width: 100%;
+    height: 250px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    margin: 60px auto 0 auto;
+    width: 40px;
+}
+
+.texto {
+    margin: 15px auto;
+    width: 35%;
+}
+
+@media (max-width: 768px) {
+
+    .texto {
+        width: 60%;
+    }
+}
