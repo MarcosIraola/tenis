@@ -68,7 +68,7 @@ const Navbar = () => {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav text-center mx-auto">  
                                 <li className="nav-item" className={styles.mobile_navbar}>
-                                    <Link to={LOGIN} className="nav-item">
+                                    <Link to={HOME} className="nav-item">
                                         <h5 className="text-secondary">Inciar sesión</h5>
                                     </Link>
                                 </li>
