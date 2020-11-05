@@ -7,7 +7,6 @@ const Register = () => {
     const [data, setData] = useState({
         first_name: '',
         last_name: '',
-        username: '',
         email: '',
         password: '',
         repetirPassword: '',
@@ -41,12 +40,6 @@ const Register = () => {
                     name="last_name" 
                     type={'text'} 
                     placeholder="Apellido " 
-                    onChange={handleInputChange}>
-                </input>
-                <input className={styles.inputs} 
-                    name="username" 
-                    type={'text'} 
-                    placeholder="Username " 
                     onChange={handleInputChange}>
                 </input>
                 <input className={styles.inputs} 

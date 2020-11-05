@@ -2,11 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/navbar/navbar.view';
+import CreateMatch from './pages/createMatch/createMatch.view';
 import Home from './pages/home/home.view';
 import Landing from './pages/landing/landing.view';
 import Login from './pages/login/login.view';
 import Register from './pages/register/register.view';
-import { HOME, LANDING, LOGIN, REGISTER } from './routes/routes';
+import { CREATEMATCH, HOME, LANDING, LOGIN, REGISTER } from './routes/routes';
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
           <Route path={REGISTER}>
             <Register/>
           </Route>
-          <Route path={HOME}>
+          <Route exact path={HOME}>
             <Home/>
           </Route>
         </Switch>

@@ -1,16 +1,18 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './home.module.css';
-import Rating from '@material-ui/lab/Rating';
 import 'antd/dist/antd.css';
 import { Tabs } from 'antd';
+import Rating from '@material-ui/lab/Rating';
 import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
 import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
 import SentimentSatisfiedIcon from '@material-ui/icons/SentimentSatisfied';
 import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAltOutlined';
 import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
-import MatchList from '../../components/matchList/matchList.view';
-import plus from './assets/plus.png';
-import lupa from './assets/loupe.png';
+import MainHome from '../../components/mainHome/mainHome.view';
+import { HOME, CREATEMATCH } from '../../routes/routes';
+import CreateMatch from '../createMatch/createMatch.view';
 
 const Home  = () => {
 
@@ -66,29 +68,16 @@ const Home  = () => {
             </div>
 
             <div className={styles.data}>
-
-                <div className={styles.containerAcciones}>
-                    <div className={styles.acciones}>
-                        <span className={styles.tituloAccion}>Crear Partido</span>
-                        <img className={styles.imgAccion} src={plus}/>
-                    </div>
-                    <div className={styles.acciones}>
-                        <span className={styles.tituloAccion}>Buscar Partido</span>
-                        <img className={styles.imgAccion} src={lupa}/>
-                    </div>
-                </div>
-
-                <Tabs className={styles.tab} defaultActiveKey="1" centered>
-                    <TabPane tab="Tus partidos" key="1">
-                    <MatchList/>
-                    </TabPane>
-                    <TabPane tab="Tus Torneos" key="2">
-                    De momento no has participado de ningun torneo.
-                    </TabPane>
-                    <TabPane tab="Información" key="3">
-                    Información...
-                    </TabPane>
-                </Tabs>
+              <Router>
+                <Switch>
+                  <Route exact path={HOME}>
+                    <MainHome />
+                  </Route>
+                  <Route exact path={CREATEMATCH}>
+                    <CreateMatch />
+                  </Route>
+                </Switch>
+              </Router>
             </div>
             
         </div>

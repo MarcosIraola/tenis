@@ -1,0 +1,31 @@
+.container {
+    width: 80%;
+    margin: 10px auto;
+}
+
+.formulario {
+    width: 40%;
+    margin: 10px auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.tituloFormulario {
+    font-size: 20px;
+    margin: 10px auto 5px auto;
+}
+
+.subTituloFormulario {
+    font-size: 15px;
+    margin: 0 auto 20px auto;
+}
+
+.itemFormulario {
+    width: 230px;
+    margin: 5px auto 5px auto;
+    display: flex;
+    justify-content: space-between;
+}
