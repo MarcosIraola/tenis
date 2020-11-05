@@ -28,14 +28,14 @@ const MainHome = () => {
             </div>
 
             <Tabs className={styles.tab} defaultActiveKey="1" centered>
-                <TabPane tab="Tus partidos" key="1">
+                <TabPane tab="Próximos partidos" key="1">
+                No tienes partidos por jugar. Crea uno!
+                </TabPane>
+                <TabPane tab="Historial" key="2">
                 <MatchList/>
                 </TabPane>
-                <TabPane tab="Tus Torneos" key="2">
-                De momento no has participado de ningun torneo.
-                </TabPane>
-                <TabPane tab="Información" key="3">
-                Información...
+                <TabPane tab="Tus torneos" key="3">
+                Torneos...
                 </TabPane>
             </Tabs>
         </div>
