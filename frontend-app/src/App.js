@@ -14,7 +14,6 @@ function App() {
     <div>
       <Router>
         <Navbar/>
-
         <Switch>
           <Route exact path={LANDING}>
             <Landing/>
