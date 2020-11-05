@@ -19,5 +19,6 @@ Route::post('users','UserController@create');
 */
 
 Route::get('games', 'GameController@all');
+Route::get('games/{id}', 'GameController@getByHostPlayerId');
 Route::post('games','GameController@create');
 

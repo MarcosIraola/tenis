@@ -26,4 +26,9 @@ class GameController extends Controller
         return response()->json(Game::get()->all());
     }
 
+    public function getByHostPlayerId ($host_player_id)
+    {
+        return response()->json(Game::where('host_player_id', $host_player_id)->get());
+    }
+
 }
