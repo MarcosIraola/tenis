@@ -4,10 +4,16 @@ import styles from './navbar.module.css';
 import {HOME, LANDING, LOGIN, REGISTER} from '../../routes/routes';
 import useResponsive from '../../hooks/useResponsive';
 import logo from './assets/logo.png';
+import {AuthContext} from "../../contexts/authentication/authentication.context";
 
 const Navbar = () => {
 
+    const { state, logout } = React.useContext(AuthContext);
     const { windowSize, isDesktop, isMobile } = useResponsive();
+
+    const logoutALanding = () => {
+        logout();
+    };
 
     return (
         <>
@@ -21,19 +27,36 @@ const Navbar = () => {
                     </Link>
                 </div>
 
-                <div className={styles.div_botones}>
-                    <Link to={HOME} className={styles.botonLogin}>
-                        Iniciar sesión
-                    </Link>
+                    {state.isAuthenticated ?
 
-                    <Link to={REGISTER}>
-                        <input
-                            className={styles.botonRegister}
-                            type='button'
-                            value='Registro'
-                        />
-                    </Link>
-                </div>
+                        <div className={styles.div_botones}>
+                            <Link
+                                value="Log out"
+                                className={styles.botonLogin}
+                                onClick={logoutALanding}
+                                to={LANDING}
+                            >
+                                Logout
+                            </Link>
+                        </div>
+
+                        :
+
+                        <div className={styles.div_botones}>
+                            <Link to={LOGIN} className={styles.botonLogin}>
+                                Iniciar sesión
+                            </Link>
+
+                            <Link to={REGISTER}>
+                                <input
+                                    className={styles.botonRegister}
+                                    type='button'
+                                    value='Registro'
+                                />
+                            </Link>
+                        </div>
+                    }
+
 
             </div>
             )}
