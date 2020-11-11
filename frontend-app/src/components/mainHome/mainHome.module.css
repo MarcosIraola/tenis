@@ -37,6 +37,10 @@
     margin-top: 10px;
 }
 
+.tabPane {
+    padding-left: 20px;
+}
+
 @media (max-width: 767px) {
 
     .containerAcciones {

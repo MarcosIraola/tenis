@@ -1,0 +1,3 @@
+ALTER TABLE users
+ADD level integer null,
+ADD fairplay integer null

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './matchCard.module.css';
 
-const MatchCard = ({fecha, jugador1, resultado, jugador2}) => {
+const MatchCard = ({fecha, resultado, guest}) => {
 
     return (
         <div className={styles.container}>
@@ -12,9 +12,9 @@ const MatchCard = ({fecha, jugador1, resultado, jugador2}) => {
                     <span className={styles.fecha}>{fecha}</span>
                 </div>
                 <div className={styles.data2}>
-                    <span className={styles.jugador}>{jugador1} </span>
+                    <span className={styles.jugador}>vs</span>
                     <span className={styles.resultado}> {resultado} </span>
-                    <span className={styles.jugador}> {jugador2}</span>
+                    <span className={styles.jugador}> {guest}</span>
                 </div>
             </div>
 

@@ -22,9 +22,10 @@
 }
 
 .data2 {
+    margin-top: 2px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .fecha {

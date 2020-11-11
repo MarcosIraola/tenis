@@ -13,7 +13,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function games()
     {
-        return $this->hasMany('App\Game');
+        return $this->hasMany('App\Game', 'host_player_id');
     }
 
     /**

@@ -29,7 +29,9 @@ class UserController extends Controller
 
     public function getById($id)
     {
-        return response()->json(User::where('id', $id)->get());
+        return response()->json(User::where('id', $id)
+            ->with('games')
+            ->get());
     }
 
 }
