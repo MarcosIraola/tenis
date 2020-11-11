@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/navbar/navbar.view';
-import CreateMatch from './pages/createMatch/createMatch.view';
 import Home from './pages/home/home.view';
 import Landing from './pages/landing/landing.view';
 import Login from './pages/login/login.view';
