@@ -29,3 +29,20 @@
     display: flex;
     justify-content: space-between;
 }
+
+.botonCrear {
+    width: 268px;
+    height: 48px;
+    margin: 10px auto;
+    background: #64d269;
+    border-radius: 10px;
+
+    font-style: normal;
+    font-size: 17px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: -0.531474px;
+    color: #FFFFFF;
+    padding-top: 13px;
+    cursor: pointer;
+}

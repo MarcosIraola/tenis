@@ -43,4 +43,11 @@ class GameController extends Controller
             ->get());
     }
 
+    public function getAvailableGames ($host_player_id)
+    {
+        return response()->json(Game::where('host_player_id', '!=', $host_player_id)
+            ->where('status', '=', 'PENDIENTE')
+            ->get());
+    }
+
 }
