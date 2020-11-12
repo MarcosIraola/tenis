@@ -13,10 +13,11 @@ const MainHome = () => {
 
     const { state } = React.useContext(AuthContext);
     const [games, setGames] = useState(null);
+    const [futureGames, setFutureGames] = useState(null);
     const { TabPane } = Tabs;
 
     useEffect(() => {
-        const url = API + '/games/' + state.user.id;
+        const url = API + '/games/completed/' + state.user.id;
         const options = {
             method: 'GET',
             headers: new Headers(),
@@ -38,6 +39,28 @@ const MainHome = () => {
             .catch(error => console.log(error));
     }, []);
 
+    useEffect(() => {
+        const url = API + '/games/created/' + state.user.id;
+        const options = {
+            method: 'GET',
+            headers: new Headers(),
+        };
+
+        fetch(url, options)
+            .then(response => {
+                    if (response.status === 200) {
+                        return response.json();
+                    }
+                    return Promise.reject(response.status);
+                }
+            )
+            .then(payload => {
+                    setFutureGames(payload);
+                }
+            )
+            .catch(error => console.log(error));
+    }, []);
+
     return (
         <div>
             <div className={styles.containerAcciones}>
@@ -54,8 +77,8 @@ const MainHome = () => {
             </div>
 
             <Tabs className={styles.tab} defaultActiveKey="1" centered>
-                <TabPane className={styles.tabPane} tab="Próximos partidos" key="1">
-                No tienes partidos por jugar. Crea uno!
+                <TabPane tab="Próximos partidos" key="1">
+                <MatchList listGames={futureGames}/>
                 </TabPane>
                 <TabPane tab="Historial" key="2">
                 <MatchList listGames={games}/>

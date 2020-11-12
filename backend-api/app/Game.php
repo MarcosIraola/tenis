@@ -20,7 +20,7 @@ class Game extends Model
 
 
     protected $fillable = [
-        'host_player_id', 'guest_player_id', 'result', 'date',
+        'host_player_id', 'guest_player_id', 'result', 'date', 'status'
     ];
 
 }

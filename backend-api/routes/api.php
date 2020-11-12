@@ -33,6 +33,7 @@ Route::post('users','UserController@create');
 */
 
 Route::get('games', 'GameController@all');
-Route::get('games/{id}', 'GameController@getByHostPlayerId');
+Route::get('games/completed/{id}', 'GameController@getCompletedGamesByHostPlayerId');
+Route::get('games/created/{id}', 'GameController@getCreatedGamesByHostPlayerId');
 Route::post('games','GameController@create');
 

@@ -9,9 +9,7 @@ const MatchList = ({listGames}) => {
             {listGames && listGames.map(game => {
                 return (
                     <MatchCard
-                        fecha= {game.date}
-                        resultado= {game.result}
-                        guest= {game.guest.first_name + ' ' + game.guest.last_name}
+                        game={game}
                     />
                 );
             }

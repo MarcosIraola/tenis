@@ -17,6 +17,12 @@
     border: 1px solid rgb(48, 145, 48);
 }
 
+.imagenStatus {
+    margin: auto 0;
+    padding-top: 10px;
+    width: 100px;
+}
+
 .data {
     width: 60%;
 }

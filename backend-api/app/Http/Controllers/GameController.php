@@ -16,6 +16,7 @@ class GameController extends Controller
             'guest_player_id'=>$request->guest_player_id,
             'result'=>$request->result,
             'date'=>$request->date,
+            'status'=>'PENDIENTE'
         ]);
         $match->save();
         return response()->json('saved', 201);
@@ -26,10 +27,19 @@ class GameController extends Controller
         return response()->json(Game::get()->all());
     }
 
-    public function getByHostPlayerId ($host_player_id)
+    public function getCompletedGamesByHostPlayerId ($host_player_id)
     {
         return response()->json(Game::where('host_player_id', $host_player_id)
             ->with('guest', 'host')
+            ->where('status', '=' ,'COMPLETADA')
+            ->get());
+    }
+
+    public function getCreatedGamesByHostPlayerId ($host_player_id)
+    {
+        return response()->json(Game::where('host_player_id', $host_player_id)
+            ->with('guest', 'host')
+            ->where('guest_player_id', NULL)
             ->get());
     }
 
