@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react';
 import styles from './mainHome.module.css';
 import { Link } from 'react-router-dom';
 import 'antd/dist/antd.css';
-import { Tabs } from 'antd';
+import { Tabs, Spin } from 'antd';
 import MatchList from '../matchList/matchList.view';
-import {API, CREATEMATCH, SEARCHMATCH} from '../../routes/routes';
+import {API, CREATEMATCH, SEARCHMATCH, } from '../../routes/routes';
 import plus from './assets/plus.png';
 import lupa from './assets/loupe.png';
 import {AuthContext} from "../../contexts/authentication/authentication.context";
@@ -12,9 +12,10 @@ import {AuthContext} from "../../contexts/authentication/authentication.context"
 const MainHome = () => {
 
     const { state } = React.useContext(AuthContext);
+    const { TabPane } = Tabs;
     const [games, setGames] = useState(null);
     const [futureGames, setFutureGames] = useState(null);
-    const { TabPane } = Tabs;
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const url = API + '/games/completed/' + state.user.id;
@@ -32,7 +33,7 @@ const MainHome = () => {
                 }
             )
             .then(payload => {
-                console.log(payload);
+                setIsLoading(false);
                 setGames(payload);
                 }
             )
@@ -80,13 +81,13 @@ const MainHome = () => {
 
             <Tabs className={styles.tab} defaultActiveKey="1" centered>
                 <TabPane tab="Próximos partidos" key="1">
-                <MatchList listGames={futureGames}/>
+                    {isLoading ? <Spin className={styles.spin} size="large"/> : <MatchList listGames={futureGames}/>}
                 </TabPane>
                 <TabPane tab="Historial" key="2">
-                <MatchList listGames={games}/>
+                    {isLoading ? <Spin className={styles.spin} size="large"/> : <MatchList listGames={games}/>}
                 </TabPane>
                 <TabPane className={styles.tabPane} tab="Tus torneos" key="3">
-                Torneos...
+                    Torneos...
                 </TabPane>
             </Tabs>
         </div>

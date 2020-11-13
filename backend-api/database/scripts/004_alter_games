@@ -1,2 +1,4 @@
 ALTER TABLE games
-ADD status varchar(20) NOT NULL;
+ADD status varchar(20) NOT NULL,
+ADD latitude  decimal(10,8)  NULL,
+ADD longitude decimal(11,8)  NULL;
