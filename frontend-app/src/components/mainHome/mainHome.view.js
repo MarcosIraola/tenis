@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import { Tabs } from 'antd';
 import MatchList from '../matchList/matchList.view';
-import {API, CREATEMATCH} from '../../routes/routes';
+import {API, CREATEMATCH, SEARCHMATCH} from '../../routes/routes';
 import plus from './assets/plus.png';
 import lupa from './assets/loupe.png';
 import {AuthContext} from "../../contexts/authentication/authentication.context";
@@ -71,8 +71,10 @@ const MainHome = () => {
                     </Link>
                 </div>
                 <div className={styles.acciones}>
-                    <span className={styles.tituloAccion}>Buscar Partido</span>
-                    <img className={styles.imgAccion} src={lupa}/>
+                    <Link to={SEARCHMATCH} className={styles.tituloAccion}>
+                        <span className={styles.tituloAccion}>Buscar Partido</span>
+                        <img className={styles.imgAccion} src={lupa}/>
+                    </Link>
                 </div>
             </div>
 
