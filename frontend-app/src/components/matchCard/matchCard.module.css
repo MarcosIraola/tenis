@@ -17,14 +17,21 @@
     border: 1px solid rgb(48, 145, 48);
 }
 
+.imagenStatus {
+    margin: auto 0;
+    padding-top: 10px;
+    width: 100px;
+}
+
 .data {
     width: 60%;
 }
 
 .data2 {
+    margin-top: 2px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .fecha {

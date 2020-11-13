@@ -2,17 +2,39 @@
 
 use Illuminate\Http\Request;
 
+Route::group([
+
+    'middleware' => 'api',
+    'prefix' => 'auth'
+
+], function ($router) {
+
+    Route::post('login', 'AuthController@login');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::post('me', 'AuthController@me');
+
+});
+
 /*
 |--------------------------------------------------------------------------
-| API Routes
+| User Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('users', 'UserController@all');
+Route::get('users/{id}', 'UserController@getById');
+Route::post('users','UserController@create');
+
+/*
+|--------------------------------------------------------------------------
+| Match Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::get('games', 'GameController@all');
+Route::get('games/completed/{id}', 'GameController@getCompletedGamesByHostPlayerId');
+Route::get('games/created/{id}', 'GameController@getCreatedGamesByHostPlayerId');
+Route::get('games/availables/{id}', 'GameController@getAvailableGames');
+Route::post('games','GameController@create');
+

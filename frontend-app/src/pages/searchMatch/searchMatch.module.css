@@ -1,37 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&display=swap');
+
 .container {
     width: 90%;
     margin: 10px auto;
+    display: flex;
+    flex-direction: row;
 }
 
-.formulario {
-    width: 40%;
+.list {
+    width: 100%;
     margin: 10px auto;
     padding: 10px;
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
-    border-radius: 10px;
 }
 
-.tituloFormulario {
-    font-size: 20px;
-    margin: 10px auto 5px auto;
-}
-
-.subTituloFormulario {
-    font-size: 15px;
-    margin: 0 auto 20px auto;
-}
-
-.itemFormulario {
-    width: 230px;
+.titulo {
+    font-size: 25px;
+    font-family: 'Fira Sans';
     margin: 5px auto 5px auto;
-    display: flex;
-    justify-content: space-between;
 }
 
-.botonCrear {
-    width: 268px;
+.container_buscador {
+    width: 100%;
+    margin: 20px auto 5px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.botonBuscar {
+    width: 160px;
     height: 48px;
     margin: 10px auto;
     background: #64d269;

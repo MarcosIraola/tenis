@@ -1,12 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { REGISTER } from '../../routes/routes';
+import {Link, useHistory} from 'react-router-dom';
+import {HOME, REGISTER} from '../../routes/routes';
 import styles from './landing.module.css';
 import fondo from './assets/fondo.png';
 import cancha from './assets/cancha.jpg'
 import Footer from '../../components/footer/footer.view';
+import {AuthContext} from "../../contexts/authentication/authentication.context";
 
 const Landing = () => {
+
+    const { state } = React.useContext(AuthContext);
+    const history = useHistory();
+
+    if (state.isAuthenticated) {
+        history.replace(HOME);
+    }
 
     return (
         <div className={styles.contenedor}>

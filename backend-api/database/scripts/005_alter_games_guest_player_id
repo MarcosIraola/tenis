@@ -1,0 +1,2 @@
+ALTER TABLE games
+    MODIFY COLUMN guest_player_id bigint unsigned null
