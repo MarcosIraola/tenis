@@ -47,6 +47,7 @@ class GameController extends Controller
     {
         return response()->json(Game::where('host_player_id', '!=', $host_player_id)
             ->where('status', '=', 'PENDIENTE')
+            ->with('host')
             ->get());
     }
 

@@ -32,7 +32,7 @@
 .botonBuscar {
     width: 160px;
     height: 48px;
-    margin: 10px auto;
+    margin: 10px auto 15px auto;
     background: #64d269;
     border-radius: 10px;
 
@@ -44,4 +44,25 @@
     color: #FFFFFF;
     padding-top: 13px;
     cursor: pointer;
+}
+
+.data {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.matchsContainer {
+    width: 50%;
+}
+
+.mapContainer {
+    width: 50%;
+    height: 100%;
+}
+
+.spin {
+    margin: 20px auto 0 auto;
+    padding-left: 180px;
 }

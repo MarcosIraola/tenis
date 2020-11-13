@@ -5,15 +5,17 @@ import MatchList from "../../components/matchList/matchList.view";
 import {API, HOME} from "../../routes/routes";
 import { LeftCircleOutlined } from '@ant-design/icons';
 import {Link} from "react-router-dom";
-import { DatePicker, TimePicker } from "antd";
+import { DatePicker, TimePicker, Spin } from "antd";
 import { Select, Rate } from 'antd';
 import { FrownOutlined, MehOutlined, SmileOutlined } from '@ant-design/icons';
+import MapSearchMatch from "../../components/mapSearchMatch/mapSearchMatch.view";
 
 
 const SearchMatch = () => {
 
     const { state } = React.useContext(AuthContext);
     const { Option } = Select;
+    const [isLoading, setIsLoading] = useState(true);
     const [games, setGames] = useState(null);
 
     function handleChange(value) {
@@ -21,7 +23,7 @@ const SearchMatch = () => {
     }
 
     useEffect(() => {
-        const url = API + '/games/availables/' + 1;
+        const url = API + '/games/availables/' + state.user.id;
         const options = {
             method: 'GET',
             headers: new Headers(),
@@ -37,6 +39,7 @@ const SearchMatch = () => {
             )
             .then(payload => {
                     setGames(payload);
+                    setIsLoading(false);
                 }
             )
             .catch(error => console.log(error));
@@ -72,7 +75,14 @@ const SearchMatch = () => {
                     </Select>
                 </div>
                 <div className={styles.botonBuscar}>Buscar</div>
-                <MatchList listGames={games}/>
+                <div className={styles.data}>
+                    <div className={styles.matchsContainer}>
+                        {isLoading ? <Spin className={styles.spin} size="large"/> : <MatchList listGames={games}/>}
+                    </div>
+                    <div className={styles.mapContainer}>
+                        <MapSearchMatch matchs={games}/>
+                    </div>
+                </div>
             </div>
         </div>
     )
